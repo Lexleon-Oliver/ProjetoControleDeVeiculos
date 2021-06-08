@@ -24,9 +24,10 @@ public class VeiculoServiceImpl implements VeiculoService{
     private final VeiculoRepository veiculoRepository;
     private final VeiculoMapper veiculoMapper = VeiculoMapper.INSTANCE;
     private final FipeClient fipeClient;
+    private UsuarioService usuarioService;
 
     @Override
-    public MessageResponseDTO criarVeiculo(VeiculoDTO veiculoDTO) throws AnoNaoEncontradoException, ModeloNaoEncontradoException, MarcaNaoEncontradaException {
+    public MessageResponseDTO criarVeiculo(VeiculoDTO veiculoDTO) {
         String tipo = veiculoDTO.getTipo();
         List<MarcaFipe> marcaFipeList = fipeClient.listarMarcas(tipo);
         MarcaFipe marca= marcaFipeList.stream()
@@ -52,6 +53,7 @@ public class VeiculoServiceImpl implements VeiculoService{
         ValorFipe valorFipe = fipeClient.listarVeiculo(tipo,idMarca,idModelo,idAno);
         veiculoDTO.setValor(valorFipe.getValor());
         veiculoDTO.setRodizioAtivo(setarDiaRodizio(veiculoDTO));
+        usuarioService.listarPorId(veiculoDTO.getUsuario());
         Veiculo veiculoParaSalvar = veiculoMapper.toModel(veiculoDTO);
         Veiculo veiculoSalvo = veiculoRepository.save(veiculoParaSalvar);
         return messageResponseCriada(veiculoSalvo.getId(),"Criado veículo com id ");

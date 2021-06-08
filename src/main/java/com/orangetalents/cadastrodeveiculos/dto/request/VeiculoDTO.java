@@ -34,6 +34,7 @@ public class VeiculoDTO {
 
     private Boolean rodizioAtivo;
 
+
     private Long usuario;
 
 }

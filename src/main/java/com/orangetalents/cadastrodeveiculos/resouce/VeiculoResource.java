@@ -23,7 +23,7 @@ public class VeiculoResource {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO criarVeiculo(@RequestBody @Valid VeiculoDTO veiculoDTO) throws MarcaNaoEncontradaException, ModeloNaoEncontradoException, AnoNaoEncontradoException {
+    public MessageResponseDTO criarVeiculo(@RequestBody @Valid VeiculoDTO veiculoDTO){
         return veiculoService.criarVeiculo(veiculoDTO);
 
     }

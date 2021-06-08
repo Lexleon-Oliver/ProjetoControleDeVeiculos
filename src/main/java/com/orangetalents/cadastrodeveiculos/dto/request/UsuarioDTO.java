@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.br.CPF;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.List;
@@ -23,11 +24,11 @@ public class UsuarioDTO {
     private String nome;
 
     @NotEmpty
-    @Size(min = 5, max = 100)
+    @Email(message = "O E-mail informado não é um endereço válido")
     private String email;
 
-    @NotEmpty
-    @CPF
+   @NotEmpty
+   @CPF
     private String cpf;
 
     @NotEmpty
