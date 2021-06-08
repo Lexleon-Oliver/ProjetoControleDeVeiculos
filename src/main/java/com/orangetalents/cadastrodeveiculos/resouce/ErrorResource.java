@@ -24,25 +24,25 @@ public class ErrorResource extends ResponseEntityExceptionHandler {
     @ExceptionHandler(UsuarioNaoEncontradoException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorMessageResponse usuarioNaoEncontrado(Exception erro, WebRequest req){
-        return new ErrorMessageResponse(404,erro.getMessage(), "Usuário não encontrado","Requisição Inválida");
+        return new ErrorMessageResponse(404,erro.getMessage(), "Usuário não encontrado","Requisição inválida");
     }
 
     @ExceptionHandler(MarcaNaoEncontradaException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorMessageResponse marcaNaoEncontrada(Exception erro, WebRequest req){
-        return new ErrorMessageResponse(404,erro.getMessage(), "Marca não encontrado","Requisição Inválida");
+        return new ErrorMessageResponse(404,erro.getMessage(), "Marca não encontrada","Requisição inválida");
     }
 
     @ExceptionHandler(ModeloNaoEncontradoException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorMessageResponse modeloNaoEncontrado(Exception erro, WebRequest req){
-        return new ErrorMessageResponse(404,erro.getMessage(), "Modelo não encontrado","Requisição Inválida");
+        return new ErrorMessageResponse(404,erro.getMessage(), "Modelo não encontrado","Requisição inválida");
     }
 
     @ExceptionHandler(AnoNaoEncontradoException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorMessageResponse anoNaoEncontrado(Exception erro, WebRequest req){
-        return new ErrorMessageResponse(404,erro.getMessage(), "Ano não encontrado","Requisição Inválida");
+        return new ErrorMessageResponse(404,erro.getMessage(), "Ano não encontrado","Requisição inválida");
     }
 
     @Override
@@ -60,12 +60,12 @@ public class ErrorResource extends ResponseEntityExceptionHandler {
     @ExceptionHandler(CPFExistenteException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorMessageResponse cpfDuplicado(Exception erro, WebRequest req){
-        return new ErrorMessageResponse(400,erro.getLocalizedMessage(), "CPF já cadastrado","Requisição Inválida");
+        return new ErrorMessageResponse(400,erro.getLocalizedMessage(), "CPF já cadastrado","Requisição inválida");
     }
 
     @ExceptionHandler(EmailExistenteException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorMessageResponse emailDuplicado(Exception erro, WebRequest req){
-        return new ErrorMessageResponse(400,erro.getLocalizedMessage(), "E-mail Já Cadastrado!","Requisição Inválida");
+        return new ErrorMessageResponse(400,erro.getLocalizedMessage(), "E-mail já cadastrado!","Requisição inválida");
     }
 }
